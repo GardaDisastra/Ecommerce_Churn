@@ -5,4 +5,4 @@ scikit-learn
 imblearn
 matplotlib
 seaborn
-os
+xgboost
