@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-import os
-
 # ------------------------------------------------------------------------------------------------ TITLE 
 st.markdown("""
     <h1 style='text-align: center; color: #996515;;'>
@@ -105,7 +103,7 @@ def segment_lrfm(df):
     return df
 
 # ------------------------------------------------------------------------------------------------ LOAD MODEL
-model_path = r"model_ecommerce_churn.sav"
+model_path = "model_ecommerce_churn.sav"
 
 # ------------------------------------------------------------------------------------------------ PREDIKSI FILE CSV
 if uploaded_file is not None and predict_file:
@@ -119,24 +117,20 @@ if uploaded_file is not None and predict_file:
         df['Complain'] = np.where(df['Complain'] == 'yes', 1, 0)
         df = segment_lrfm(df)
 
-        if os.path.exists(model_path):
-            with open(model_path, "rb") as file:
-                model_loaded = pickle.load(file)
+        with open(model_path, "rb") as file:
+            model_loaded = pickle.load(file)
 
-            y_proba = model_loaded.predict_proba(df)[:, 1]
-            pred_label = np.where(y_proba > 0.35, 1, 0)
-            df['ChurnPrediction'] = np.where(pred_label == 1, "Churn", "Tidak Churn")
-            df['ChurnProbability'] = y_proba
+        y_proba = model_loaded.predict_proba(df)[:, 1]
+        pred_label = np.where(y_proba > 0.35, 1, 0)
+        df['ChurnPrediction'] = np.where(pred_label == 1, "Churn", "Tidak Churn")
+        df['ChurnProbability'] = y_proba
 
-            st.subheader("📄 Hasil Prediksi Batch")
-            st.dataframe(df[['PreferredLoginDevice', 'CityTier', 'CashbackAmount',
-                             'EightSegment', 'ChurnPrediction', 'ChurnProbability']])
+        st.subheader("📄 Hasil Prediksi Batch")
+        st.dataframe(df[['PreferredLoginDevice', 'CityTier', 'CashbackAmount',
+                         'EightSegment', 'ChurnPrediction', 'ChurnProbability']])
 
-            csv = df.to_csv(index=False).encode('utf-8')
-            st.download_button("📥 Download Hasil", csv, "hasil_prediksi.csv", "text/csv")
-        else:
-            st.error(f"⚠️ File model tidak ditemukan di: `{model_path}`")
-
+        csv = df.to_csv(index=False).encode('utf-8')
+        st.download_button("📥 Download Hasil", csv, "hasil_prediksi.csv", "text/csv")
 # ------------------------------------------------------------------------------------------------ PREDIKSI MANUAL
 elif submitted:
     df = pd.DataFrame({
@@ -164,21 +158,18 @@ elif submitted:
     st.subheader("📊 Data yang Dimasukkan")
     st.write(df)
 
-    if os.path.exists(model_path):
-        with open(model_path, "rb") as file:
-            model_loaded = pickle.load(file)
+    with open(model_path, "rb") as file:
+        model_loaded = pickle.load(file)
 
-        y_proba = model_loaded.predict_proba(df)[:, 1]
-        kelas = np.where(y_proba > 0.50, 1, 0)
+    y_proba = model_loaded.predict_proba(df)[:, 1]
+    kelas = np.where(y_proba > 0.50, 1, 0)
 
-        st.subheader("📈 Hasil Prediksi")
-        st.subheader(f"Customer termasuk kategori:\n {df['EightSegment'].loc[0]}")
-        
-        if kelas == 1:
-            st.success("✅ **Customer DIPREDIKSI AKAN churn.**")
-        else:
-            st.error("❌ **Customer DIPREDIKSI TIDAK AKAN churn.**")
-
-        st.markdown(f"**🎯 Probabilitas Churn:** `{y_proba[0]:.2%}`")
+    st.subheader("📈 Hasil Prediksi")
+    st.subheader(f"Customer termasuk kategori:\n {df['EightSegment'].loc[0]}")
+    
+    if kelas == 1:
+        st.success("✅ **Customer DIPREDIKSI AKAN churn.**")
     else:
-        st.error(f"⚠️ File model tidak ditemukan di: `{model_path}`")
+        st.error("❌ **Customer DIPREDIKSI TIDAK AKAN churn.**")
+
+    st.markdown(f"**🎯 Probabilitas Churn:** `{y_proba[0]:.2%}`")
