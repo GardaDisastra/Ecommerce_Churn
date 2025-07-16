@@ -105,7 +105,7 @@ def segment_lrfm(df):
     return df
 
 # ------------------------------------------------------------------------------------------------ LOAD MODEL
-model_path = r"C:\purwadhika\FINPRO\ecommerce_churn.sav"
+model_path = r"model_ecommerce_churn.sav"
 
 # ------------------------------------------------------------------------------------------------ PREDIKSI FILE CSV
 if uploaded_file is not None and predict_file:
