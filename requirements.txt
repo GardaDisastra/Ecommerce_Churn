@@ -6,4 +6,3 @@ imblearn
 matplotlib
 seaborn
 os
-xgboost
