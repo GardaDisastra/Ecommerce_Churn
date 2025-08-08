@@ -17,14 +17,11 @@ Contoh aktivitas *customer retention*:
 
 Sebagai ilustrasi, jika perusahaan mengeluarkan dana $100.000 untuk mempertahankan 1.000 pelanggan lama:
 - **Customer Retention Cost:**  
-  $$
-  \text{Retention Cost per Customer} = \frac{\$100.000}{1.000} = \$100~\text{per customer}
-  $$
+ Retention Cost per Customer = $100.000 / 1.000 = $100per customer
 
 - **Customer Acquisition Cost:**  
-  $$
-  \text{Acquisition Cost per Customer} = \$100 \times 5 = \$500~\text{per customer}
-  $$  
+ Acquisition Cost per Customer = $100 times 5 = $500 per customer
+
   ([*Source*](https://www.clv-calculator.com/customer-costs/retention-costs-clv/retention-cost-formula/))
 
 Dengan demikian, diasumsikan bahwa biaya untuk mempertahankan satu pelanggan adalah $100, sedangkan untuk mendapatkan pelanggan baru adalah $500.
@@ -131,6 +128,37 @@ Pada Explanatory Data Analysis dilakukan :
 - Mencari tahu apa saja yang menyebabkan `Churn`
 - Mencari tahu pola perilaku Customer yang melakukan `Churn`
 - Melihat Importance Feature
+
+## **Kesimpulan**
+
+### **Statistika**
+
+Berdasarkan uji statistik yang telah dilakukan, fitur yang paling memengaruhi churn adalah Tenure, Complain, dan PreferedOrderCat. Terdapat sebanyak 841 customer yang melakukan churn, di mana mayoritas merupakan customer baru dengan tenure 0–1 tahun. Dari total customer yang churn tersebut, sebanyak 449 customer atau sekitar 50% pernah melakukan complain. Mayoritas customer yang melakukan complain ini juga berada pada tenure 0–1 tahun.
+
+Dari sisi preferensi order, sebagian besar customer yang churn berasal dari kategori Mobile Phone, yaitu sekitar 58% dari total churn pada 5 kategori order yang tersedia. Menariknya, Mobile Phone juga merupakan kategori yang paling banyak mendapatkan complain. Dari 449 customer yang churn dan melakukan complain, sekitar 60% melakukan complain terhadap produk Mobile Phone.
+
+### **Cost Marketing**
+| Strategi                | Cost Campaign                | Nett Benefit                       |
+| ----------------------- | ---------------------------- | ---------------------------------- |
+| **Mass Marketing**      | 101.500   | -17.500                 |
+| **ML (sebelum tuning)** | 23.900      | 52.600      |
+| **ML (setelah tuning)** | 23.100 | 54.900 |
+| **ML + Segmentasi**     | 20.070      | 57.930      |
+
+**Insight Utama**
+Cost Campaign berkurang drastis:
+Dari 101.500 (Mass Marketing) ➜ 20.070 (ML + Segmentasi) ➜ hemat sekitar 80%
+
+Nett Benefit meningkat signifikan:
+Dari rugi (-17.500) ➜ untung (57.930) ➜ perbaikan lebih dari 400%
+
+Segmentasi & tuning penting:
+Tuning memberi penghematan tambahan 3%+, segmentasi meningkatkan Nett Benefit 5%+ lagi.
+
+Sehingga:
+- Gunakan Machine Learning untuk efisiensi biaya & profit maksimal
+- Lakukan tuning untuk optimalisasi berkelanjutan
+- Targetkan dengan segmentasi pelanggan untuk hasil paling optimal
 
 
 ## **Screenshoot Deploy Streamlit**
