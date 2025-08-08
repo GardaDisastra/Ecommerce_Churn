@@ -134,6 +134,8 @@ Pada Explanatory Data Analysis dilakukan :
 
 
 ## **Screenshoot Deploy Streamlit**
+
+Link: (https://gardaecommercechurn.streamlit.app/)
 ### **Input 1 data**
 ![satu_input](satu_input.png)  
 ### **Input bulk data**
