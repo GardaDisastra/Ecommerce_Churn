@@ -105,7 +105,7 @@ def segment_lrfm(df):
     return df
 
 # ------------------------------------------------------------------------------------------------ LOAD MODEL
-model_path = r"C:\Users\ACER NITRO\Downloads\FINPRO\model_ecommerce_churn.sav"
+model_path = r"model_ecommerce_churn.sav"
 
 # ------------------------------------------------------------------------------------------------ PREDIKSI FILE CSV
 if uploaded_file is not None and predict_file:
@@ -182,3 +182,4 @@ elif submitted:
         st.markdown(f"**🎯 Probabilitas Churn:** `{y_proba[0]:.2%}`")
     else:
         st.error(f"⚠️ File model tidak ditemukan di: `{model_path}`")
+
