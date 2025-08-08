@@ -1,4 +1,4 @@
-# 1. **Business Problem Understanding**
+# **Business Problem Understanding**
 
 ## **Context**
 
@@ -87,7 +87,7 @@ Langkah-langkah yang akan dilakukan:
 
 ---
 
-## **Data Understanding**
+# **Data Understanding**
 
 **Deskripsi Kolom**
 
@@ -116,28 +116,28 @@ Langkah-langkah yang akan dilakukan:
 
 ---
 
-## **Data Cleaning**
+# **Data Cleaning**
 Pada Data Cleaning dilakukan :
 - Penghapusan duplikat
 - Normalisasi Value
 - Melakukan Imputasi pada Cell dengan NaN value menggunakan IterativeImputer
 
-## **Explanatory Data Analysis**
+# **Explanatory Data Analysis**
 Pada Explanatory Data Analysis dilakukan :
 - Melihat Distribusi Data
 - Mencari tahu apa saja yang menyebabkan `Churn`
 - Mencari tahu pola perilaku Customer yang melakukan `Churn`
 - Melihat Importance Feature
 
-## **Kesimpulan**
+# **Kesimpulan**
 
-### **Statistika**
+## **Statistika**
 
 Berdasarkan uji statistik yang telah dilakukan, fitur yang paling memengaruhi churn adalah Tenure, Complain, dan PreferedOrderCat. Terdapat sebanyak 841 customer yang melakukan churn, di mana mayoritas merupakan customer baru dengan tenure 0–1 tahun. Dari total customer yang churn tersebut, sebanyak 449 customer atau sekitar 50% pernah melakukan complain. Mayoritas customer yang melakukan complain ini juga berada pada tenure 0–1 tahun.
 
 Dari sisi preferensi order, sebagian besar customer yang churn berasal dari kategori Mobile Phone, yaitu sekitar 58% dari total churn pada 5 kategori order yang tersedia. Menariknya, Mobile Phone juga merupakan kategori yang paling banyak mendapatkan complain. Dari 449 customer yang churn dan melakukan complain, sekitar 60% melakukan complain terhadap produk Mobile Phone.
 
-### **Cost Marketing**
+## **Cost Marketing**
 | Strategi                | Cost Campaign                | Nett Benefit                       |
 | ----------------------- | ---------------------------- | ---------------------------------- |
 | **Mass Marketing**      | 101.500   | -17.500                 |
@@ -161,18 +161,18 @@ Sehingga:
 - Targetkan dengan segmentasi pelanggan untuk hasil paling optimal
 
 
-## **Screenshoot Deploy Streamlit**
+# **Screenshoot Deploy Streamlit**
 
 Link: (https://gardaecommercechurn.streamlit.app/)
-### **Input 1 data**
+## **Input 1 data**
 ![satu_input](satu_input.png)  
-### **Input bulk data**
+## **Input bulk data**
 ![bulk_data](bulk_data.png)  
 
-## **Screenshoot Tableau**
-### **Dashboard 1**
+# **Screenshoot Tableau**
+## **Dashboard 1**
 ![Dashboard1](Dashboard1.png)  
-### **Dashboard 2**
+## **Dashboard 2**
 ![Dashboard2](Dashboard2.png)  
-### **Dashboard 3**
+## **Dashboard 3**
 ![Dashboard3](Dashboard3.png)
